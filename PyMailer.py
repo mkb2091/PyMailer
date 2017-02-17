@@ -35,7 +35,6 @@ class AttachmentManager(ttk.Frame):
         self.attachment_labels=[]
         ttk.Button(self, text='Clear', command=self.clear).pack(side='bottom')
         ttk.Button(self, text='Add', command=self.add).pack(side='bottom')
-        self.pack(side='top')
     def add(self):
         d=filedialog.askopenfilename()
         if d:
@@ -68,6 +67,7 @@ class PyMailer(ttk.Frame):
         self.body=tk.Text(self, height=10)
         self.body.pack(anchor='w')
         self.attachments=AttachmentManager(self)
+        self.attachments.pack(side='top')
         ttk.Button(self, text='Send', command=self.button).pack(anchor='w')
         self.pack()
         self.mainloop()
