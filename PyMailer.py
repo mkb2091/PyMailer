@@ -29,7 +29,7 @@ def MXlookup(domain):
     return domain
 class AttachmentManager(ttk.Frame):
     def __init__(self, master=None):
-        super().__init__(master)
+        ttk.Frame.__init__(self, master)
         ttk.Label(self, text='Attachments').pack()
         self.attachments=[]
         self.attachment_labels=[]
@@ -50,7 +50,7 @@ class AttachmentManager(ttk.Frame):
         return self.attachments
 class PyMailer(ttk.Frame):
     def __init__(self, master=None):
-        super().__init__(master)
+        ttk.Frame.__init__(self, master)
         ttk.Label(self, text='To:').pack(anchor='sw')
         self.rcpttos=tk.Text(self, height=5)
         self.rcpttos.pack(anchor='w')
@@ -83,8 +83,8 @@ class PyMailer(ttk.Frame):
         mimeapps=[]
         for f in attachments:
             try:
-                with open(f, 'rb') as file:
-                    app=MIMEApplication(file.read())
+                with open(f, 'rb') as cfile:
+                    app=MIMEApplication(cfile.read())
                     app['Content-Disposition']='attachment; filename="%s"' % basename(f)
                     mimeapps.append(app)
             except Exception as error:
