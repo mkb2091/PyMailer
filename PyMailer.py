@@ -81,11 +81,11 @@ class PyMailer(ttk.Frame):
         self.mainloop()
 
     def button(self):
-        rcpttos = self.rcpttos.get("1.0", 'end-1c').replace(',', ' ').split()
-        fromaddr = self.fromaddr.get("1.0", 'end-1c')
-        fromname = self.fromname.get("1.0", 'end-1c')
-        subject = self.subject.get("1.0", 'end-1c')
-        body = self.body.get("1.0", 'end-1c')
+        rcpttos = self.rcpttos.get('1.0', 'end-1c').replace(',', ' ').split()
+        fromaddr = self.fromaddr.get('1.0', 'end-1c')
+        fromname = self.fromname.get('1.0', 'end-1c')
+        subject = self.subject.get('1.0', 'end-1c')
+        body = self.body.get('1.0', 'end-1c')
         attachments = self.attachments.get_attachments()
         self.send_email(rcpttos, fromaddr, fromname, subject, body, attachments)
 
