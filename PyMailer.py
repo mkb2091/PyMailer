@@ -130,4 +130,5 @@ class PyMailer(ttk.Frame):
                 print('Sent')
             except Exception as error:
                 print(error)
-PyMailer()
+if __name__ == '__main__':
+    PyMailer()
